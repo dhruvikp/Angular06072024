@@ -1,0 +1,43 @@
+<p>directives works!</p>
+
+<ul>
+    <li *ngFor="let user of users"> {{user}} </li>
+</ul>
+
+<div [ngSwitch]="userRole">
+    <p *ngSwitchCase="'admin'"> Admin Dashboard</p>
+    <p *ngSwitchCase="'user'"> User Dashboard</p>
+    <p *ngSwitchDefault> Guest Dashboard</p>
+</div>
+<br/>
+
+<div *ngIf="isLoggedIn; else guest">
+    <p> Welcom Dhruvik!</p>
+</div>  
+
+<ng-template #guest>
+    <p>Please log in to continue</p>
+</ng-template>
+
+
+<br/>
+
+<ng-container *ngTemplateOutlet="greetingTempalte"></ng-container>
+
+
+<ng-template #greetingTempalte>
+    <p>Hello , {{name}}</p>
+</ng-template>
+
+<input type="text" [(ngModel)] = "progress"/>
+<div class = "progress-bar" 
+    [ngStyle]="getProgressBarStyles()"> 
+    Progress: {{progress}}%
+</div>
+<br/>
+<p>items:</p>
+<ul>
+    <li *ngFor="let item of items" [ngClass] ="item.type">
+        {{item.name}}
+    </li>
+</ul>

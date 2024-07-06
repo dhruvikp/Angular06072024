@@ -1,0 +1,51 @@
+<br />
+<br />
+
+
+<form id="user-data" (ngSubmit)="onSubmit()" #f="ngForm">
+
+    <div id="userdata" ngModelGroup="userData">
+        <label for="username"> Username </label>
+        <input type="text" id="username" ngModel name="username" required />
+
+        <button type="button" (click)="suggestUserName()"> Suggest a user name</button>
+        <br /><br />
+        <div>
+            <label for="email">Mail</label>
+            <input type="email" id="email" ngModel name="email" required email #email="ngModel" />
+
+            <span *ngIf="!email.valid && email.touched">
+                Please enter a valid email address!
+            </span>
+        </div>
+        <br />
+        <div>
+            <label for="secret"> Serect Question</label>
+            <select id="secret" ngModel name="secret">
+                <option value="pet"> Your first pet?</option>
+                <option value="teacher"> Your first teacher? </option>
+            </select>
+        </div>
+        <br />
+        <!-- <div>
+            <label>Upload File:</label>
+            <input type="file" name="file" ngModel required=""/>
+        </div> -->
+        <br/>
+        <div>
+            <button type="submit" [disabled]="!f.valid">Submit</button>
+        </div>
+
+       
+
+    </div>
+</form>
+
+<div *ngIf="submitted">
+    <h1> Your Data</h1>
+
+    <p> UserName: {{user.username}}</p>
+    <p> Mail: {{user.email}}</p>
+    <p> Secret Question: {{user.secret}}</p>
+
+</div>

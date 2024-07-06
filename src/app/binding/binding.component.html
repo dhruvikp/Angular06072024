@@ -1,0 +1,18 @@
+<p>binding works!</p>
+
+<h1> Hello {{username}} !</h1>
+
+<button [disabled]="isDisabled"> Submit </button>
+
+<!-- <input type="text" (input)="onInputChange($event)"/> -->
+
+<input type="text" [(ngModel)]="inputValue" />
+
+{{inputValue}}
+
+<br/>
+<div *ngIf="isDisabled"> Content is visible </div>
+
+<div *ngIf="isLoggedIn">
+    <p> Welcome Dhruvik!</p>
+</div>

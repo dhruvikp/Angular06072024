@@ -1,0 +1,15 @@
+.progress-bar {
+    border: 1px solid #ccc; padding:5px;
+}
+
+.success {
+    color: green;
+}
+
+.warning {
+    color: orange;
+}
+
+.error {
+    color: red;
+}
